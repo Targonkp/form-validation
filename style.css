@@ -1,0 +1,237 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+.wrap{
+    max-width: 400px;
+    width: 100%;
+    margin: 20px auto;
+    background: #e9dac6;
+    box-shadow: #f4e5d1 5px 5px;
+    padding: 20px 55px;
+    box-sizing: border-box;
+}
+
+.form-block{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-block *{
+    outline: none;
+}
+
+input:focus, .form__button:focus, select:focus{
+    box-shadow: 0 0 15px #f3f13e;
+}
+
+
+.file__input:focus + .file__button{
+    box-shadow: 0 0 15px #f3f13e;
+}
+
+.form-block__item{
+    width: 100%;
+    margin: 10px 0;
+}
+
+.form-block__input{
+    outline: none;
+    border: 1px solid #dce9ad;
+    font-size: 18px;
+    line-height: 22px;
+    padding: 5px 12px;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-block__input.error{
+    box-shadow: 0 0 15px #f39773;
+}
+
+.checkbox__input.error + .checkbox__label::before{
+    box-shadow: 0 0 15px #f39773;
+}
+
+.options{
+    margin: 12px 0 0 0;
+}
+
+.options__item{
+    padding: 0 0 10px 0;
+}
+
+.options__input{
+    display: none;
+}
+
+.options__label{
+    display: inline-flex;
+    font-size: 16px;
+    line-height: 20px;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.options__label::before{
+    content: '';
+    flex: 0 0 24px;
+    height: 24px;
+    background: #ffffff;
+    border-radius: 50%;
+    align-self: flex-start;
+    margin: 0 10px 0 0;
+    cursor: pointer;
+}
+
+.options__label::after{
+    content: '';
+    position: absolute;
+    top:4px;
+    left: 4px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #d9e6aa;
+    transform: scale(0);
+    transition: 0.4s;
+}
+
+.options__input:checked + .options__label::after{
+    transform: scale(1);
+}
+
+.options__input:checked + .options__label > .options__text{
+    color: #626c4f;
+}
+
+.form-block__title{
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0 10px 0 0;
+}
+
+.select{
+    height: 30px;
+    width: 50px;
+    border-radius: 5px;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.file{
+    margin: 10px 0 0 0;
+}
+
+.file__item{
+    position: relative;
+}
+
+.file__input{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 120px;
+    height: 100%;
+    opacity: 0;
+    font-size: 0;
+    cursor: pointer;
+}
+
+.file__button{
+    display: inline-flex;
+    border-radius: 20px;
+    border: 1px solid #b9bf7d;
+    justify-content: center;
+    align-items: center;
+    background: #d9df98;
+    width: 120px;
+    padding: 10px 0;
+}
+
+.file__preview{
+    display: inline-block;
+    max-width: 200px;
+    height: auto;
+    margin: 20px 0 14px 0;
+    transition: 0.3s;
+}
+
+.file__preview:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.file__preview img{
+    max-width: 100%;
+}
+
+.checkbox__input{
+    display: none;
+}
+
+.checkbox__input:checked + .checkbox__label::after{
+    transform: scale(1);
+}
+
+.checkbox__label{
+    font-size: 18px;
+    line-height: 22px;
+    align-items: center;
+    display: inline-flex;
+    position: relative;
+    cursor: pointer;
+}
+
+.checkbox__label::before{
+    content: '';
+    flex: 0 0 24px;
+    height: 24px;
+    background: #ffffff;
+    border-radius: 4px;
+    align-self: flex-start;
+    margin: 10px 10px 0 0;
+}
+
+.checkbox__label::after{
+    content: '';
+    width: 16px;
+    height: 16px;
+    top: 14px;
+    left: 4px;
+    position: absolute;
+    background: #d9e6aa;
+    border-radius: 4px;
+    transform: scale(0);
+    transition: 0.3s;
+}
+
+
+.form__button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    background-color: #d9e6aa;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 18px;
+    margin: 10px 0 0 0;
+    letter-spacing: 2px;
+    transition: background-color 0.5s ease-in-out 0s;
+}
+
+.form__button:hover{
+    background-color: #bfcc93;
+}
+
+
