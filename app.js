@@ -36,13 +36,17 @@ function formSend(e){
             .then((response) => {
                 console.log(response.status);
                 if (response.status === 200){
-                    alert('Данные отправлены успешно');
                     response.json();
                 }
             })
             .then((data) => {
-                form.classList.remove('_sending'); //удаляю класс с gif загрузки
-                form.reset(); //очищаю форму
+                setTimeout(
+                    () => {
+                        form.classList.remove('_sending'); //удаляю класс с gif загрузки
+                        form.reset(); //очищаю форму
+                    },
+                    1000
+                )
             })
             .catch(error => alert(error))
 
