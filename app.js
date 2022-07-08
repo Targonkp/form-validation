@@ -32,7 +32,7 @@ function formSend(e){
         //добавляю класс с gif загрузки
         form.classList.add('_sending');
         //отправляю запрос
-        fetch('server.js')
+        fetch('')
             .then((response) => {
                 console.log(response.status);
                 if (response.status === 200){
@@ -41,7 +41,6 @@ function formSend(e){
                 }
             })
             .then((data) => {
-                console.log(data);
                 form.classList.remove('_sending'); //удаляю класс с gif загрузки
                 form.reset(); //очищаю форму
             })
