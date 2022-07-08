@@ -40,7 +40,7 @@ body{
 .form-block._sending::after{
     opacity: 1;
     visibility: visible;
-    transition: 0.5s;
+    transition: 1.2s;
 }
 
 input:focus, .form__button:focus, select:focus{
