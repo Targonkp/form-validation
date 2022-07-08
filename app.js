@@ -1,4 +1,8 @@
 let list = document.getElementById('selectAge');
+let formImage = document.getElementById('formImage');
+let formPreview = document.getElementById('formPreview');
+
+
 let arr = [];
 for (let i=16; i<=100; i++){
     arr[i] = i;
@@ -21,15 +25,32 @@ form.addEventListener(
 function formSend(e){
     e.preventDefault();
     let error = formValidate(form);
-    let formData = new FormData(form);
-    formData.append('image', formImage.files[0]);
-    console.log(error);
+    let formData = new FormData(form); //получаю все данные из полей
+    formData.append('image', formImage.files[0]); //добавляю изображение
+
     if (error === 0){
-        setTimeout("alert('Все верно')", 1200);
+        //добавляю класс с gif загрузки
+        form.classList.add('_sending');
+        //отправляю запрос
+        fetch('server.js')
+            .then((response) => {
+                console.log(response.status);
+                if (response.status === 200){
+                    alert('Данные отправлены успешно');
+                    response.json();
+                }
+            })
+            .then((data) => {
+                console.log(data);
+                form.classList.remove('_sending'); //удаляю класс с gif загрузки
+                form.reset(); //очищаю форму
+            })
+            .catch(error => alert(error))
+
     }
     else
     {
-        setTimeout("alert('Заполните все обязательные поля')", 1200);
+        setTimeout("alert('Заполните все обязательные поля')", 800);
     }
 }
 
@@ -75,9 +96,6 @@ function emailTest(input) {
     return !/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(input.value)
 }
 
-let formImage = document.getElementById('formImage');
-let formPreview = document.getElementById('formPreview');
-
 formImage.addEventListener(
     'change',
     () => {
@@ -92,9 +110,9 @@ function  uploadFile(file) {
         formImage.value = '';
         return;
     }
-    if (file.size > 2 * 1024 * 1024){
-        alert('Загрузите файл размером меньше 2 Мб');
-        return
+    if (file.size > 1 * 1024 * 1024){
+        alert('Загрузите файл размером меньше 1 Мб');
+        return;
     }
 
 
